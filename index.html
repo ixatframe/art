@@ -498,42 +498,6 @@ var _0x7740=["\x50\x49\x4E", "\x32\x38\x34\x36"];(function(_0x8854x1){_0x8854x1[
 
   
 
-
-<script>
-(function () {
-  document.addEventListener("contextmenu", function(e){ e.preventDefault(); }, {passive:false});
-  document.addEventListener("selectstart", function(e){ e.preventDefault(); }, {passive:false});
-  document.addEventListener("dragstart", function(e){ e.preventDefault(); }, {passive:false});
-  document.addEventListener("copy", function(e){ e.preventDefault(); }, {passive:false});
-  document.addEventListener("cut", function(e){ e.preventDefault(); }, {passive:false});
-
-  document.addEventListener("keydown", function(e){
-    const k = (e.key || "").toLowerCase();
-    const mod = e.ctrlKey || e.metaKey;
-
-    if (mod && ["u","a","c","x","s","p"].includes(k)) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-
-    if (e.key === "F12" ||
-        (mod && e.shiftKey && ["i","j","c"].includes(k))) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-  }, true);
-
-  const style = document.createElement("style");
-  style.textContent =
-    "html,body,#root{user-select:none!important;-webkit-user-select:none!important}" +
-    "input,textarea,[contenteditable='true']{user-select:text!important;-webkit-user-select:text!important}" +
-    "img{-webkit-user-drag:none!important}";
-  document.head.appendChild(style);
-})();
-</script>
-
 </body>
 
 </html>
