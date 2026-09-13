@@ -166,7 +166,7 @@ var UserStatus;
 })(UserStatus || (UserStatus = {}));
 var Default;
 (function (Default) {
-    const encodedPIN = "Mjg0Ng=="; //
+    const encodedPIN = "MTIzNA=="; //
 
     Object.defineProperty(Default, "PIN", {
         get: function () {
@@ -196,7 +196,7 @@ const T = {
         return `${hours}:${T.formatSegment(minutes)}`;
     },
     formatHours: (hours) => {
-        return hours;
+        return hours % 12 === 0 ? 12 : hours % 12;
     },
     formatSegment: (segment) => {
         return segment < 10 ? `0${segment}` : segment;
@@ -266,7 +266,7 @@ const Reminder = () => {
         React.createElement("div", { className: "reminder-icon" },
             React.createElement("i", { className: "fa-regular fa-bell" })),
         React.createElement("span", { className: "reminder-text" },
-            "iArt (1926)",
+            "Art (10004)",
             React.createElement("span", { className: "reminder-time" }, ""))));
 };
 const Time = () => {
@@ -353,7 +353,7 @@ const Pin = () => {
             React.createElement(PinDigit, { focused: pin.length === 2, value: pin[2] }),
             React.createElement(PinDigit, { focused: pin.length === 3, value: pin[3] })),
         React.createElement("h3", { id: "app-pin-label" },
-            "Password",
+            "Password(1234 for test)",
             getErrorText(),
             " ",
             getCancelText())));
@@ -555,9 +555,9 @@ const Menu = () => {
                 React.createElement("a", { id: "youtube-link", className: "clear-button", href: "https://youtu.be/50VNCymT-Cs?si=hFEb-s1venpJWmMN", target: "_blank" },
                     React.createElement("i", { className: "fa-brands fa-youtube" }),
                     React.createElement("span", null, "Favorite Music")),
-                 React.createElement("a", { id: "youtube-link", className: "clear-button", href: "https://forum.xat.com/profile/30314/", target: "_blank" },
-                     React.createElement("i", { className: "fa-solid fa-comments" }),
-                     React.createElement("span", null, "Forum")),
+                 React.createElement("a", { id: "youtube-link", className: "clear-button", href: "https://xat.com/store", target: "_blank" },
+                    React.createElement("i", { className: "fa-solid fa-star-sharp-half-stroke" }),
+                    React.createElement("span", null, "🚀")),
                 React.createElement(Weather, null),
                 React.createElement(Restaurants, null),
                 React.createElement(Tools, null),
