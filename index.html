@@ -597,7 +597,29 @@ ReactDOM.render(React.createElement(App, null), document.getElementById("root"))
 //# sourceURL=pen.js
 
     </script>
+<script>
+(function () {
+    // Dezactivează click dreapta
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        return false;
+    });
 
+    // Dezactivează Select All
+    document.addEventListener("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "a") {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    // Dezactivează selectarea textului
+    document.addEventListener("selectstart", function (e) {
+        e.preventDefault();
+        return false;
+    });
+})();
+</script>
 </body>
 
 </html>
