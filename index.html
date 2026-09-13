@@ -124,6 +124,271 @@ function Circle() {
 </script>
 
 
+<style id="iart-music-player-style">
+/* iArt Luxury Music Player — compact version */
+#iart-music-player{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  pointer-events:none;
+  font-family:Rubik,Arial,sans-serif;
+}
+#iart-music-player .toggle-play{
+  pointer-events:auto;
+  position:relative;
+  width:142px;
+  height:48px;
+  border:1px solid rgba(232,232,232,.22);
+  border-radius:18px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:#E8E8E8;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.10),rgba(152,152,189,.13)),
+    rgba(28,27,37,.58);
+  backdrop-filter:blur(16px) saturate(125%);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    inset 0 -1px 0 rgba(0,0,0,.18),
+    0 8px 25px rgba(0,0,0,.30),
+    0 0 20px rgba(152,152,189,.14);
+  transition:transform .25s ease,box-shadow .3s ease,border-color .3s ease;
+  overflow:hidden;
+}
+#iart-music-player .toggle-play:hover{
+  transform:translateY(-2px);
+  border-color:rgba(199,199,199,.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.20),
+    0 12px 30px rgba(0,0,0,.34),
+    0 0 26px rgba(152,152,189,.25);
+}
+#iart-music-player .toggle-play:active{transform:scale(.98)}
+#iart-music-player #sound{
+  position:relative;
+  z-index:4;
+  font-family:"Times New Roman",serif;
+  font-size:30px!important;
+  line-height:1;
+  color:#E8E8E8;
+  text-shadow:0 1px 7px rgba(152,152,189,.45);
+}
+.iart-equalizer{
+  position:relative;
+  z-index:4;
+  height:20px;
+  display:flex;
+  align-items:flex-end;
+  gap:3px;
+}
+.iart-equalizer i{
+  display:block;
+  width:3px;
+  height:6px;
+  border-radius:4px;
+  background:linear-gradient(to top,#9898BD,#E8E8E8);
+  box-shadow:0 0 6px rgba(152,152,189,.35);
+}
+#iart-music-player.playing .iart-equalizer i{
+  animation:iartBars .7s ease-in-out infinite alternate;
+}
+#iart-music-player.playing .iart-equalizer i:nth-child(2){animation-delay:.12s}
+#iart-music-player.playing .iart-equalizer i:nth-child(3){animation-delay:.24s}
+#iart-music-player.playing .iart-equalizer i:nth-child(4){animation-delay:.36s}
+@keyframes iartBars{
+  from{height:5px}
+  to{height:19px}
+}
+.iart-player-ring{
+  position:absolute;
+  inset:5px;
+  border:1px solid rgba(152,152,189,.32);
+  border-radius:14px;
+  opacity:0;
+  pointer-events:none;
+}
+#iart-music-player.playing .iart-player-ring{
+  animation:iartGlow 1.8s ease-in-out infinite;
+}
+@keyframes iartGlow{
+  0%,100%{opacity:.08;box-shadow:0 0 0 rgba(152,152,189,0)}
+  50%{opacity:.5;box-shadow:0 0 18px rgba(152,152,189,.20)}
+}
+@media(max-width:600px){
+  #iart-music-player{right:12px;bottom:12px}
+  #iart-music-player .toggle-play{width:128px;height:45px;border-radius:16px}
+}
+</style>
+
+<style id="iart-music-player-final-tuning">
+#iart-music-player .toggle-play{
+  justify-content:center;
+  gap:12px;
+}
+#iart-music-player #sound.iart-login-symbol{
+  font-family:Arial,sans-serif;
+  font-size:27px!important;
+  font-weight:700;
+  line-height:1;
+  transform:translateY(-1px);
+}
+#iart-music-player .iart-equalizer{
+  position:relative;
+  z-index:5;
+  height:18px;
+  width:25px;
+  justify-content:center;
+  align-items:flex-end;
+  gap:3px;
+}
+</style>
+
+
+<style id="iart-player-symbol-tuning">
+#iart-music-player #sound.iart-login-symbol{
+  font-family:Arial,sans-serif;
+  font-size:29px!important;
+  font-weight:700;
+  font-style:normal;
+  line-height:1;
+  color:#E8E8E8;
+  text-shadow:0 1px 7px rgba(152,152,189,.45);
+}
+</style>
+
+
+<style id="iart-equalizer-inside-button">
+#iart-music-player .toggle-play{
+  gap:14px;
+  overflow:hidden;
+}
+#iart-music-player .iart-equalizer{
+  position:relative;
+  z-index:5;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  width:25px;
+  height:19px;
+  gap:3px;
+  flex:0 0 25px;
+}
+#iart-music-player .iart-equalizer i{
+  width:3px;
+  max-height:17px;
+}
+#iart-music-player #sound.iart-login-symbol{
+  position:relative;
+  z-index:6;
+  font-family:Arial,sans-serif;
+  font-size:25px!important;
+  font-weight:800;
+  letter-spacing:-2px;
+  line-height:1;
+}
+</style>
+
+
+<style id="iart-symbol-final-fix">
+#iart-music-player #sound{
+  font-size:0!important;
+  width:27px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+#iart-music-player #sound::after{
+  content:"♪";
+  font-family:"Times New Roman",serif;
+  font-size:30px;
+  font-weight:700;
+  line-height:1;
+  color:#E8E8E8;
+  text-shadow:0 1px 7px rgba(152,152,189,.45);
+}
+#iart-music-player.playing #sound::after{
+  content:"❚❚";
+  font-family:Arial,sans-serif;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-3px;
+}
+#iart-music-player .iart-equalizer{
+  position:absolute!important;
+  right:14px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:7!important;
+  width:25px!important;
+  height:19px!important;
+}
+#iart-music-player .toggle-play{
+  padding-right:48px!important;
+}
+</style>
+
+
+<style id="iart-music-final-hard-fix">
+#iart-music-player #sound{
+  display:block!important;
+  width:30px!important;
+  height:30px!important;
+  overflow:hidden!important;
+  font-size:0!important;
+  line-height:0!important;
+  color:transparent!important;
+  text-indent:-9999px!important;
+  white-space:nowrap!important;
+}
+#iart-music-player #sound::before{
+  content:"♪"!important;
+  display:block!important;
+  width:30px!important;
+  height:30px!important;
+  text-indent:0!important;
+  font-family:"Times New Roman",serif!important;
+  font-size:30px!important;
+  font-weight:700!important;
+  line-height:30px!important;
+  text-align:center!important;
+  color:#E8E8E8!important;
+  text-shadow:0 1px 7px rgba(152,152,189,.45)!important;
+}
+#iart-music-player.playing #sound::before{
+  content:"❚❚"!important;
+  font-family:Arial,sans-serif!important;
+  font-size:23px!important;
+  font-weight:900!important;
+  letter-spacing:-3px!important;
+}
+#iart-music-player .iart-equalizer{
+  position:absolute!important;
+  right:13px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  display:flex!important;
+  width:25px!important;
+  height:19px!important;
+  margin:0!important;
+  padding:0!important;
+  z-index:10!important;
+}
+#iart-music-player .toggle-play{
+  position:relative!important;
+  padding-right:47px!important;
+  overflow:hidden!important;
+}
+</style>
+
 </head>
 
 <body translate="no" >
@@ -146,9 +411,19 @@ function Circle() {
         </div>
       </div>
     </div>
-    <button class="toggle-play">
-      <i id="sound" class="material-icons" style="font-size:41px">music_note</i>
-    </button>
+    <div id="iart-music-player" class="iart-music-player">
+      <button class="toggle-play" id="iart-play-btn" type="button" aria-label="Play / Stop music">
+        <span class="iart-player-ring ring-1"></span>
+        <span class="iart-player-ring ring-2"></span>
+        <i id="sound" class="iart-login-symbol" aria-hidden="true" aria-hidden="true"></i>
+      </button>
+      <span class="iart-equalizer">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <audio id="iart-audio" preload="metadata">
+        <source src="music.mp3" type="audio/mpeg">
+      </audio>
+    </div>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
@@ -618,6 +893,21 @@ ReactDOM.render(React.createElement(App, null), document.getElementById("root"))
         e.preventDefault();
         return false;
     });
+})();
+</script>
+<script id="iart-music-player-controller">
+(function(){
+  const player=document.getElementById("iart-music-player");
+  const button=document.getElementById("iart-play-btn");
+  const audio=document.getElementById("iart-audio");
+  const icon=document.getElementById("sound");
+  if(!player||!button||!audio)return;
+  function setPlaying(on){player.classList.toggle("playing",on);if(icon) icon.textContent="";}
+  button.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();if(audio.paused){audio.play().then(()=>setPlaying(true)).catch(()=>{});}else{audio.pause();setPlaying(false);}});
+  audio.addEventListener("play",()=>setPlaying(true));
+  audio.addEventListener("pause",()=>setPlaying(false));
+  audio.addEventListener("ended",()=>setPlaying(false));
+  audio.play().then(()=>setPlaying(true)).catch(()=>{});
 })();
 </script>
 </body>
