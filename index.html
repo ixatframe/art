@@ -389,6 +389,49 @@ function Circle() {
 }
 </style>
 
+
+<style id="iart-video-cards">
+.movie-card { position: relative; overflow: hidden; }
+.movie-card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  border-radius: inherit;
+  z-index: 1;
+}
+.movie-card-content { position: relative; z-index: 3; }
+</style>
+
+
+<style id="iart-video-play-fix">
+.movie-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+.movie-card-video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  z-index: 20 !important;
+  pointer-events: auto !important;
+}
+.movie-card > .movie-card-content {
+  z-index: 21 !important;
+  pointer-events: none !important;
+}
+.movie-card-video::-webkit-media-controls {
+  z-index: 30 !important;
+}
+</style>
+
 </head>
 
 <body translate="no" >
@@ -767,38 +810,57 @@ const Restaurants = () => {
 const Movies = () => {
     const getMovies = () => {
         return [{
-               desc: "",
-                id: 1,
-                icon: "",
-                image: "https://u.cubeupload.com/etsu/8d94e65774c648f5ab9e.png?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFydmVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                title: ""
-            }, {
-                desc: "",
-                id: 2,
-                icon: "",
-                image: "https://u.cubeupload.com/etsu/7e5572b2c84d49479bae.png?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bG9yZCUyMG9mJTIwdGhlJTIwcmluZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-                title: ""
-            }, {
-                desc: "",
-                id: 3,
-                icon: "",
-                image: "https://u.cubeupload.com/etsu/0881061c55994955933d.png?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGhhcnJ5JTIwcG90dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                title: ""
-                }, {
-                desc: "",
-                id: 4,
-                icon: "",
-                image: "https://u.cubeupload.com/etsu/59421ecfa597462c9450.png?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGhhcnJ5JTIwcG90dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                title: ""
-                  
-
-            }].map((movie) => {
+            desc: "",
+            id: 1,
+            video: "video1.mp4", // pune video1.mp4 în același folder cu index.html,
+            icon: "",
+            image: "https://u.cubeupload.com/etsu/8d94e65774c648f5ab9e.png",
+            title: ""
+        }, {
+            desc: "",
+            id: 2,
+            video: "video2.mp4", // pune video2.mp4 în același folder cu index.html,
+            icon: "",
+            image: "https://u.cubeupload.com/etsu/7e5572b2c84d49479bae.png",
+            title: ""
+        }, {
+            desc: "",
+            id: 3,
+            video: "video3.mp4", // pune video3.mp4 în același folder cu index.html,
+            icon: "",
+            image: "https://u.cubeupload.com/etsu/0881061c55994955933d.png",
+            title: ""
+        }, {
+            desc: "",
+            id: 4,
+            video: "video4.mp4", // pune video4.mp4 în același folder cu index.html,
+            icon: "",
+            image: "https://u.cubeupload.com/etsu/59421ecfa597462c9450.png",
+            title: ""
+        }].map((movie) => {
             const styles = {
                 backgroundImage: `url(${movie.image})`
             };
+
+            const media = movie.video
+                ? React.createElement("video", {
+                    className: "movie-card-video",
+                    src: movie.video,
+                    controlsList: "nodownload",
+                    onClick: (e) => e.stopPropagation(),
+                    controls: true,
+                    playsInline: true,
+                    preload: "metadata",
+                    loop: false
+                })
+                : React.createElement("div", {
+                    className: "movie-card-background background-image",
+                    style: styles
+                });
+
             const id = `movie-card-${movie.id}`;
             return (React.createElement("div", { key: movie.id, id: id, className: "movie-card" },
-                React.createElement("div", { className: "movie-card-background background-image", style: styles }),
+                media,
                 React.createElement("div", { className: "movie-card-content" },
                     React.createElement("div", { className: "movie-card-info" },
                         React.createElement("span", { className: "movie-card-title" }, movie.title),
@@ -806,7 +868,13 @@ const Movies = () => {
                     React.createElement("i", { className: movie.icon }))));
         });
     };
-    return (React.createElement(MenuSection, { icon: "fa-solid fa-camera-movie", id: "movies-section", scrollable: true, title: "Failure is not falling down, but refusing to get up." }, getMovies()));
+
+    return (React.createElement(MenuSection, {
+        icon: "fa-solid fa-camera-movie",
+        id: "movies-section",
+        scrollable: true,
+        title: "Failure is not falling down, but refusing to get up."
+    }, getMovies()));
 };
 const UserStatusButton = (props) => {
     const { userStatus, setUserStatusTo } = React.useContext(AppContext);
