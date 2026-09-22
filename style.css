@@ -69,17 +69,28 @@ body input, body h1, body h3, body a, body span {
 }
 
 .clear-button {
-  backdrop-filter: blur(3px);
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 100px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  backdrop-filter: blur(12px) saturate(125%);
+  -webkit-backdrop-filter: blur(12px) saturate(125%);
+  background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(152,152,189,.13)), rgba(28,27,37,.72);
+  border: 1px solid rgba(232,232,232,.22);
+  border-radius: 24px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.24), 0 0 14px rgba(152,152,189,.12);
   cursor: pointer;
+  color: #E8E8E8 !important;
+  text-decoration: none !important;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
+.clear-button span, .clear-button i { color: #E8E8E8 !important; opacity: 1 !important; }
 .clear-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(152,152,189,.18)), rgba(45,44,58,.86);
+  border-color: rgba(232,232,232,.38);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 8px 24px rgba(0,0,0,.32), 0 0 22px rgba(152,152,189,.22);
+  transform: translateY(-2px);
 }
+#app #youtube-link i { color: #ef5350 !important; }
+#app #forum-link i { color: #9898BD !important; }
+#app #contact-link i { color: #E8E8E8 !important; }
 
 #app {
   background-color: #1e1e1e;
