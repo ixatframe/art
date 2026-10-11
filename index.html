@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administrator | ArtBots Developer</title>
+<meta name="description" content="Administrator and developer profile for ArtBots XAT services, projects, tools and support.">
+<link rel="icon" type="image/jpeg" href="assets/artbots-logo.jpg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap');
+:root{--red:#ff2038;--red2:#a90019;--silver:#e7e9ee;--muted:#9ba0ab;--bg:#07080b;--panel:#101217;--line:#292c35}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3a0710 0,transparent 48%),var(--bg);color:var(--silver);font-family:'Rajdhani',sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}a{color:inherit;text-decoration:none}.top{height:76px;padding:0 clamp(18px,5vw,70px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff16;background:#08090de8;backdrop-filter:blur(14px);position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:12px;font-family:Orbitron,sans-serif;font-size:13px;letter-spacing:2px}.brand img{width:42px;height:42px;object-fit:cover;object-position:center;border-radius:50%;border:1px solid var(--red);box-shadow:0 0 18px #ff20384d}.brand b{color:var(--red)}nav{display:flex;gap:clamp(12px,2.3vw,34px);font-size:14px;font-weight:700;letter-spacing:1.5px;color:#c1c4cd}nav a:hover{color:#fff;text-shadow:0 0 12px var(--red)}.status{border:1px solid #ff2038a0;background:#ff20381c;padding:8px 13px;border-radius:3px;color:#ff5268;font-size:12px;font-weight:700;letter-spacing:1.5px;box-shadow:0 0 18px #ff20381c}.status i,.dot{display:inline-block;width:7px;height:7px;background:#ff3149;border-radius:50%;margin-right:7px;box-shadow:0 0 12px #ff2038;animation:blink 1.4s infinite}
+.status i{background:#ff2038;box-shadow:0 0 8px #ff2038,0 0 16px #ff203870;animation:offlinePulse 1.4s ease-in-out infinite}
+@keyframes serverOnlinePulse{0%,100%{opacity:1;box-shadow:0 0 6px #35ff86,0 0 12px #35ff8670;transform:scale(1)}50%{opacity:.45;box-shadow:0 0 2px #35ff86,0 0 22px #35ff86;transform:scale(1.18)}}
+@keyframes offlinePulse{0%,100%{opacity:1;box-shadow:0 0 6px #ff2038,0 0 12px #ff203870;transform:scale(1)}50%{opacity:.45;box-shadow:0 0 2px #ff2038,0 0 22px #ff2038;transform:scale(1.18)}}.hero{position:relative;min-height:610px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:60px clamp(20px,8vw,130px);overflow:hidden;border-bottom:1px solid #ff203827}.hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(ellipse at 72% 45%,#b00a2442,transparent 30%),linear-gradient(115deg,transparent 44%,#ff20381b 45%,transparent 46%);animation:ambient 7s ease-in-out infinite alternate}.hero:after{content:"";position:absolute;top:0;bottom:0;left:-35%;width:25%;background:linear-gradient(90deg,transparent,#ff233a1e,transparent);transform:skewX(-18deg);animation:sweep 7s linear infinite}.hero-copy,.bot-stage{position:relative;z-index:1}.eyebrow{color:#ff6677;font-size:13px;letter-spacing:4px;font-weight:700}.hero h1{font-family:Orbitron,sans-serif;font-size:clamp(48px,7vw,100px);line-height:.95;margin:20px 0 10px;letter-spacing:-4px;text-shadow:0 0 30px #ff203820}.hero h1 span{color:var(--red);text-shadow:0 0 30px #ff20387c}.sub{font-family:Orbitron,sans-serif;letter-spacing:7px;color:#d7d9df;font-size:clamp(12px,1.7vw,18px)}.intro{max-width:500px;color:#aeb2bd;font-size:20px;line-height:1.5;margin:26px 0 30px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:13px 20px;border:1px solid #ff2038a1;background:linear-gradient(110deg,#b50921,#ff2038);font-weight:700;letter-spacing:1.2px;font-size:13px;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));box-shadow:0 0 25px #ff20382a;transition:.2s}.btn:hover{transform:translateY(-3px);box-shadow:0 0 32px #ff203866}.btn.alt{background:#101217;border-color:#4a4d57;box-shadow:none}.bot-stage{display:flex;align-items:center;justify-content:center;min-height:400px}.ring{position:absolute;width:min(34vw,370px);aspect-ratio:1;border:1px solid #ff20385c;border-radius:50%;box-shadow:0 0 45px #ff203821,inset 0 0 45px #ff20381b;animation:rotate 18s linear infinite}.ring:before,.ring:after{content:"";position:absolute;inset:17px;border:1px dashed #ff203873;border-radius:50%}.ring:after{inset:-18px;border-color:#fff2}.bot-logo{width:min(32vw,350px);aspect-ratio:1;object-fit:cover;object-position:center;border-radius:50%;border:2px solid #ff344a7d;box-shadow:0 0 35px #ff20383b,0 0 100px #ff20381c;animation:float 4s ease-in-out infinite}.beam{position:absolute;height:2px;width:125%;background:linear-gradient(90deg,transparent,#ff3048,white,#ff3048,transparent);filter:drop-shadow(0 0 8px #ff2038);animation:beam 3s ease-in-out infinite}.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);background:#0c0d11}.stat{text-align:center;padding:24px 10px;border-right:1px solid var(--line)}.stat strong{display:block;font-family:Orbitron,sans-serif;font-size:22px;color:#fff}.stat small{color:#888e9b;letter-spacing:2px;font-size:11px}.section{padding:76px clamp(20px,8vw,130px)}.section-title{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}.section-title h2{font-family:Orbitron,sans-serif;font-size:clamp(24px,3vw,38px);margin:9px 0 0}.section-title h2 span{color:var(--red)}.section-title p{max-width:420px;color:#9297a4;font-size:17px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(140deg,#14161d,#0c0d11);border:1px solid #292c35;padding:26px;min-height:190px;position:relative;overflow:hidden;transition:.25s}.card:before{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:var(--red);transform:scaleY(.25);transform-origin:top;transition:.25s}.card:hover{transform:translateY(-5px);border-color:#ff20385c}.card:hover:before{transform:scaleY(1)}.card .ico{font-size:27px;color:var(--red)}.card h3{font-family:Orbitron,sans-serif;font-size:15px;letter-spacing:1px}.card p{color:#9ca1ad;line-height:1.5}.terminal{background:#08090c;border:1px solid #343640;padding:22px;font-family:monospace;color:#b9c0ca;box-shadow:0 15px 45px #0006}.term-head{display:flex;gap:7px;margin-bottom:18px}.term-head i{width:8px;height:8px;border-radius:50%;background:#ff3149}.terminal p{margin:8px 0}.terminal .red{color:#ff5268}.terminal .green{color:#81f3a1}.support{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:28px;background:linear-gradient(100deg,#220910,#101217 70%);border:1px solid #ff20384a}.support h3{font-family:Orbitron,sans-serif;margin:0 0 7px}.support p{color:#9da2ad;margin:0}.footer{border-top:1px solid var(--line);padding:24px clamp(20px,8vw,130px);display:flex;justify-content:space-between;gap:20px;color:#777d89;font-size:13px;letter-spacing:1px}.footer b{color:#ff5268}
+@keyframes blink{50%{opacity:.35;box-shadow:0 0 3px #ff2038}}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}@keyframes sweep{0%{left:-35%}100%{left:130%}}@keyframes beam{0%,100%{opacity:.15;transform:translateY(-80px)}50%{opacity:1;transform:translateY(100px)}}@keyframes ambient{from{transform:translateX(-1%) scale(1)}to{transform:translateX(2%) scale(1.05)}}
+@media(max-width:800px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:55px}.bot-stage{min-height:320px}.bot-logo{width:min(65vw,300px)}.ring{width:min(70vw,330px)}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.cards{grid-template-columns:1fr}.section-title{display:block}.support{align-items:flex-start;flex-direction:column}.footer{flex-direction:column}}
+
+/* Text layout refinements */
+.hero{gap:clamp(24px,4vw,64px);grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr)}
+.hero-copy{min-width:0;max-width:680px}
+.hero h1{font-size:clamp(32px,5.1vw,72px);line-height:1.06;letter-spacing:-2.5px;white-space:nowrap;overflow-wrap:normal}
+.sub{letter-spacing:clamp(2px,.65vw,6px);line-height:1.45}
+.intro{max-width:560px;font-size:clamp(17px,1.45vw,20px);line-height:1.65;text-wrap:pretty}
+.eyebrow{line-height:1.6;letter-spacing:clamp(1.5px,.3vw,4px);text-wrap:balance}
+.actions{align-items:center}
+.btn{text-align:center;line-height:1.35;white-space:normal}
+.section-title{align-items:center}
+.section-title>div{min-width:0}
+.section-title h2{line-height:1.2;letter-spacing:-.5px;text-wrap:balance}
+.section-title p{line-height:1.55;margin:10px 0 0;text-wrap:pretty}
+.card h3{line-height:1.4;overflow-wrap:anywhere}
+.card p{font-size:17px;line-height:1.65;text-wrap:pretty}
+.terminal{overflow-wrap:anywhere;line-height:1.7}
+.support{min-width:0}
+.support>div{min-width:0}
+.support h3{line-height:1.35}
+.support p{line-height:1.6;font-size:17px;max-width:680px}
+.footer{line-height:1.6;flex-wrap:wrap}
+.brand span{line-height:1.4}
+@media(max-width:1000px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(240px,.75fr);padding-left:clamp(20px,5vw,60px);padding-right:clamp(20px,5vw,60px)}
+  .hero h1{font-size:clamp(38px,5.5vw,64px);letter-spacing:-1.5px}
+  .sub{letter-spacing:2.5px}
+  .section{padding:60px clamp(20px,5vw,60px)}
+}
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr;gap:10px;padding-bottom:35px}
+  .hero-copy{max-width:100%}
+  .hero h1{font-size:clamp(28px,7.8vw,58px);letter-spacing:-1.5px;white-space:nowrap;overflow-wrap:normal}
+  .sub{font-size:12px;letter-spacing:2px}
+  .intro{font-size:18px;max-width:620px}
+  .bot-stage{min-height:280px}
+  .section{padding:48px 20px}
+  .section-title h2{font-size:clamp(22px,6vw,32px)}
+  .section-title p{font-size:16px}
+  .stats .stat{padding:20px 8px}
+  .stat strong{font-size:18px}
+  .stat small{font-size:10px;letter-spacing:1px}
+  .support{padding:22px}
+}
+@media(max-width:420px){
+  .top{padding:0 14px}
+  .brand{font-size:10px;letter-spacing:1px;gap:8px}
+  .brand img{width:34px;height:34px}
+  .status{font-size:10px;letter-spacing:.7px;padding:7px 9px}
+  .hero h1{font-size:clamp(24px,7vw,34px);letter-spacing:-1px;white-space:nowrap}
+  .eyebrow{font-size:11px}
+  .actions{align-items:stretch}
+  .actions .btn{flex:1 1 100%}
+  .terminal{padding:16px;font-size:12px}
+  .footer{font-size:11px}
+}
+
+
+/* Pulsing terminal cursor */
+.terminal .cursor{
+  display:inline-block;
+  color:#81f3a1;
+  font-weight:700;
+  animation:terminalCursorPulse 1s steps(2, start) infinite;
+  text-shadow:0 0 7px #81f3a1, 0 0 14px #35ff8a;
+}
+@keyframes terminalCursorPulse{
+  0%, 49% { opacity:1; }
+  50%, 100% { opacity:0.12; }
+}
+@media (prefers-reduced-motion: reduce){
+  .terminal .cursor{animation:none;opacity:1}
+}
+
+
+/* Casual copy protection */
+html, body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+input, textarea, [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+
+/* ArtBots bot server status panel */
+.bot-status-panel{margin-top:22px;border:1px solid #30333d;background:linear-gradient(110deg,rgba(16,18,23,.96),rgba(8,9,12,.96));padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 20px;align-items:center;position:relative;overflow:hidden}
+.bot-status-panel:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#ffb52e;box-shadow:0 0 16px #ffb52e}
+.bot-status-heading{font-family:Orbitron,sans-serif;font-size:12px;letter-spacing:2px;color:#e7e9ee}
+.bot-status-sub{color:#9299a7;font-size:15px;margin-top:5px}
+.bot-status-state{display:flex;align-items:center;gap:9px;font-family:Orbitron,sans-serif;font-size:11px;letter-spacing:1.5px;color:#ffc45c;white-space:nowrap}
+.bot-status-light{width:9px;height:9px;border-radius:50%;background:#ffb52e;box-shadow:0 0 8px #ffb52e,0 0 18px #ffb52e80;animation:maintenancePulse 1.4s ease-in-out infinite}
+.bot-status-meta{grid-column:1/-1;border-top:1px solid #292c35;padding-top:11px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#737b89;font:11px monospace;letter-spacing:.4px}
+.bot-status-meta strong{color:#b9c0ca;font-weight:500}
+@keyframes maintenancePulse{0%,100%{opacity:1;box-shadow:0 0 6px #ffb52e,0 0 12px #ffb52e70;transform:scale(1)}50%{opacity:.5;box-shadow:0 0 2px #ffb52e,0 0 20px #ffb52e;transform:scale(1.15)}}
+@media(max-width:520px){.bot-status-panel{padding:15px;grid-template-columns:1fr;gap:9px}.bot-status-state{grid-row:2}.bot-status-meta{grid-column:1;line-height:1.7}}
+
+</style></head>
+<body>
+<header class="top"><a class="brand" href="#top"><img src="assets/artbots-logo.jpg" alt="ArtBots logo"><span>ADMIN<b>ISTRATOR</b> / DEV</span></a><nav><a href="#about">PROFILE</a><a href="#features">PROJECTS</a><a href="#status">STATUS</a><a href="#support">CONTACT</a></nav><span class="status"><i></i> STATUS SERVER ARTBOTS</span></header>
+<main id="top"><section class="hero"><div class="hero-copy"><div class="eyebrow">◈ iART[1926]</div><h1>ADMIN<span>ISTRATOR</span></h1><div class="sub">ARTBOTS • DEVELOPER</div><p class="intro">Managing ArtBots services, developing tools and maintaining a reliable experience for XAT communities.</p><div class="actions"><a class="btn" href="https://artbots.ro" target="_blank" rel="noopener noreferrer">VIEW PROJECT ↗</a><a class="btn alt" href="https://forum.xat.com/messenger/compose/?to=30312">CONTACT ↗</a></div></div><div class="bot-stage"><div class="ring"></div><img class="bot-logo" src="assets/artbots-logo.jpg" alt="ArtBots animated bot theme"><div class="beam"></div></div></section>
+<section class="stats" id="status"><div class="stat"><strong>SINCE XAT</strong><small>July 31, 2014</small></div><div class="stat"><strong>DEV</strong><small>DEVELOPMENT</small></div><div class="stat"><strong>CORE</strong><small>TECHNICAL WORK</small></div><div class="stat"><strong>ADMIN</strong><small>iART (1926)</small></div></section>
+<section class="section" id="about"><div class="section-title"><div><div class="eyebrow">01 / PROFILE</div><h2>ADMINISTRATOR <span>PROFILE</span></h2></div><p>Administrator and developer focused on service stability, technical improvements, clear communication and responsible community support.</p></div><div class="terminal"><div class="term-head"><i></i><i></i><i></i></div><p><span class="red">admin@artbots</span>:~$ load_admin_profile</p><p><span class="green">✓</span> Administrator profile loaded</p><p><span class="green">✓</span> ArtBots development tools ready</p><p><span class="green">✓</span> Technical support workflow online</p><p><span class="red">admin@artbots</span>:~$ <span class="green cursor" aria-label="cursor">_</span></p></div>
+<div class="bot-status-panel" role="status" aria-label="ArtBots server status">
+  <div>
+    <div class="bot-status-heading">ARTBOTS BOT SERVER</div>
+    <div class="bot-status-sub">Service temporarily unavailable while maintenance is in progress.</div>
+  </div>
+  <div class="bot-status-state"><span class="bot-status-light"></span><span>OFFLINE</span></div>
+  <div class="bot-status-meta">
+    <span>SERVER <strong>ARTBOTS</strong></span>
+    <span>STATUS <strong>MAINTENANCE</strong></span>
+    <span>MODE <strong>MAINTENANCE</strong></span>
+  </div>
+</div>
+</section>
+<section class="section" id="features"><div class="section-title"><div><div class="eyebrow">02 / PROJECTS & SKILLS</div><h2>DEVELOPER <span>CORE</span></h2></div><p>A focused overview of the technical areas, projects and responsibilities behind ArtBots.</p></div><div class="cards"><article class="card"><div class="ico">⌘</div><h3>BOT DEVELOPMENT</h3><p>Maintain bot commands, troubleshoot issues and build features for XAT communities.</p></article><article class="card"><div class="ico">◉</div><h3>WEB PLATFORM</h3><p>Develop and maintain responsive web pages, interface components and profile themes.</p></article><article class="card"><div class="ico">⚙</div><h3>SYSTEMS & SUPPORT</h3><p>Handle technical investigations, service updates, documentation and community support.</p></article></div></section>
+<section class="section" id="support"><div class="support"><div><h3>DEVELOPMENT & CONTACT</h3><p>Connect through GitHub or your official XAT contact. Replace the example links with your own.</p></div><a class="btn" href="https://forum.xat.com/messenger/compose/?to=30314" target="_blank" rel="noopener">CONTACT ↗</a></div></section></main>
+<footer class="footer"><span>© ARTBOTS.RO · This site is not affiliated in any way with xat.com ltd. All xat bots are provided as-is without warranty — available as a free and optionally paid service.</span><span>COPYRIGHT PROFILE <b>© ARTBOTS · iART(1926)</b></span></footer>
+
+<script>
+(() => {
+  // Disable the context menu on the page.
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Block common selection gestures and common view-source/devtools shortcuts.
+  document.addEventListener('selectstart', event => {
+    const target = event.target;
+    if (!target || !target.closest('input, textarea, [contenteditable="true"]')) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    const key = (event.key || '').toLowerCase();
+    const ctrlOrCmd = event.ctrlKey || event.metaKey;
+
+    if (
+      key === 'f12' ||
+      (ctrlOrCmd && ['u', 's', 'p'].includes(key)) ||
+      (ctrlOrCmd && event.shiftKey && ['i', 'j', 'c'].includes(key))
+    ) {
+      event.preventDefault();
+    }
+  });
+})();
+</script>
+
+</body></html>
